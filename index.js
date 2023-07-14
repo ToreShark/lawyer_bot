@@ -4,8 +4,6 @@ const text = require('./const');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
-
-
 const questionScene = require('./scenes/questionScene');
 const courtDecisionScene = require('./scenes/courtDecisionScene');
 const stage = new Scenes.Stage([questionScene, courtDecisionScene]);
@@ -14,6 +12,7 @@ bot.use(session());
 bot.use(stage.middleware());
 
 bot.command('begin', (ctx) => ctx.scene.enter('question'));
+bot.command('exit', (ctx) => ctx.scene.leave());
 
 bot.start((ctx) => ctx.reply(`Привет ${ctx.message.from.first_name ? ctx.message.from.first_name : 'пользователь'}!`));
 bot.help((ctx) => ctx.reply(text.commands));
