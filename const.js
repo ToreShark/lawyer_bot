@@ -3,6 +3,7 @@ const command = `
 /help - Помощь
 /begin - Начать диалог
 /course - Курсы адвоката
+/exit - Выйти из диалога
 `
 const text1 = `
     Текст для проверки обработчкиа1 и <a href="https://google.com">ссылка</a>
